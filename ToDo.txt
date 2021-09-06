@@ -1,0 +1,5 @@
+Add favicon
+Add secret for password hashing
+Remove pug (view engine)
+Add swagger
+Use cookie instead of storing session on server
