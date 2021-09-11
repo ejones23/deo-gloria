@@ -71,7 +71,8 @@
               "browserTarget": "deo-gloria:build:production"
             },
             "development": {
-              "browserTarget": "deo-gloria:build:development"
+              "browserTarget": "deo-gloria:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

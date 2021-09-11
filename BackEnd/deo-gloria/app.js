@@ -3,8 +3,9 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var logger = require('morgan');
+var cors = require('cors');
 
-var usersRouter = require('./routes/login');
+var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 
 var app = express();
@@ -16,7 +17,7 @@ app.use(cookieParser());
 app.use(session({
   resave: false, // don't save session if unmodified
   saveUninitialized: false, // don't create session until something stored
-  secret: 'TODO: replace secret'
+  secret: 'PlaceholderSecret123$%^'
 }));
 
 function restrict(req, res, next) {
@@ -27,8 +28,10 @@ function restrict(req, res, next) {
   }
 }
 
-app.use('/login', usersRouter);
-app.use('/register', restrict, registerRouter);
+app.options('/api/login', cors());
+app.use('/api/login', cors(), loginRouter);
+
+app.use('/api/register', restrict, registerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
