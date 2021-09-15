@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 //TODO use secret
-const uri = "mongodb+srv://dbadmin:u4ZS7ZBzfUFc!@Y@cluster0.zsse0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = process.env.DG_DB_URI;
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
