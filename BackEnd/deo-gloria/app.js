@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(session({
   resave: false, // don't save session if unmodified
   saveUninitialized: false, // don't create session until something stored
-  secret: 'PlaceholderSecret123$%^'
+  secret: process.env.DG_SESSION_SECRET
 }));
 
 function restrict(req, res, next) {
