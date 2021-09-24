@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cors = require('cors');
 
 var loginRouter = require('./routes/login');
+var logoutRouter = require('./routes/logout');
 var registerRouter = require('./routes/register');
 
 var app = express();
@@ -24,12 +25,15 @@ function restrict(req, res, next) {
   if (req.session.user) {
     next();
   } else {
-    req.json({'error': 'Access denied'});
+    res.json({'error': 'Access denied. Please create an account (if you haven\'t already) and log in.'});
   }
 }
 
 app.options('/api/login', cors());
 app.use('/api/login', cors(), loginRouter);
+
+app.options('/api/logout', cors());
+app.use('/api/logout', cors(), logoutRouter);
 
 app.use('/api/register', restrict, registerRouter);
 
@@ -44,7 +48,6 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
   res.status(err.status || 500);
   res.json({'error': err});
 });

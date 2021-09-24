@@ -10,5 +10,12 @@ module.exports = {
     let collection = connection.db('deo').collection('users');
 
     return await collection.findOne({'name': name});
+  },
+
+  addUser: async function(user) {
+    let connection = await client.connect();
+    let collection = connection.db('deo').collection('users');
+
+    return await collection.insertOne(user);
   }
 };
