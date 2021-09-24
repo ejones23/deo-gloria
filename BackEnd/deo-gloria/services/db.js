@@ -12,10 +12,10 @@ module.exports = {
     return await collection.findOne({'name': name});
   },
 
-  addUser: async function(user) {
+  addUser: async function(username, salt, hash) {
     let connection = await client.connect();
     let collection = connection.db('deo').collection('users');
 
-    return await collection.insertOne(user);
+    return await collection.insertOne({ name: username, salt: salt, hash: hash });
   }
 };

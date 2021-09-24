@@ -23,10 +23,10 @@ router.post('/', function(req, res) {
         // in the session store to be retrieved,
         // or in this case the entire user object
         req.session.user = user;
-        res.json({'authenticated': true});
+        res.json({ authenticated: true });
       });
     } else {
-      res.json({'error': err?.message });
+      res.json({ error: err?.message });
     }
   });
 });

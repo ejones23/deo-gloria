@@ -5,6 +5,7 @@ var session = require('express-session');
 var logger = require('morgan');
 var cors = require('cors');
 
+var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
 var registerRouter = require('./routes/register');
@@ -28,6 +29,9 @@ function restrict(req, res, next) {
     res.json({'error': 'Access denied. Please create an account (if you haven\'t already) and log in.'});
   }
 }
+
+app.options('/api/signup', cors());
+app.use('/api/signup', cors(), signupRouter);
 
 app.options('/api/login', cors());
 app.use('/api/login', cors(), loginRouter);
