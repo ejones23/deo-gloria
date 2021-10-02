@@ -1,6 +1,12 @@
 Add favicon
 Add swagger
 Use cookie instead of storing session on server
+Display log in/out conditionally
+Display Profile conditionally
+Require confirmed password to be the same
+
+Working on:
+Get signup/login/logout set up as dropdown menu under 'Account', and hook into endpoints
 
 Command to run backend:
 DEBUG=deo-gloria:* npm start

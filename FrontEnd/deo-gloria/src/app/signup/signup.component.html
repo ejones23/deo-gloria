@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+      <label for="username">Username or email</label>
+      <input type="text" class="form-control" id="username" required [(ngModel)]="username" name="username"/>
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" required [(ngModel)]="password" name="password">
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" class="form-control" id="confirm-password" required [(ngModel)]="confirmPassword" name="confirm-password">
+      <button type="submit" class="btn btn-success">Create Account</button>
+  </div>
+</form>
