@@ -14,7 +14,7 @@ const loginUrl: string = 'http://localhost:3000/api/login';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AccountService {
   constructor(private http: HttpClient) { }
 
   logIn(username: string, password: string) {
