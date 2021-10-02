@@ -4,7 +4,7 @@ var router = express.Router();
 router.post('/', function(req, res) {
   req.session.regenerate(function(){
     req.session.user = null;
-    res.json({'logged_out': true});
+    res.json({'authenticated': false});
   });
 });
 

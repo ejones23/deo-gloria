@@ -11,7 +11,14 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
 
-  constructor(private accountService: AccountService) { }
+  authenticated: boolean = false;
+
+  constructor(private accountService: AccountService) {
+    console.log(`Login: rand: ${this.accountService.rand}`)
+    this.accountService.authenticated$.subscribe(authenticated => {
+      this.authenticated = authenticated;
+    });
+  }
 
   ngOnInit(): void {
   }

@@ -6,7 +6,7 @@ Display Profile conditionally
 Require confirmed password to be the same
 
 Working on:
-Get signup/login/logout set up as dropdown menu under 'Account', and hook into endpoints
+Investigate reload issue
 
 Command to run backend:
 DEBUG=deo-gloria:* npm start
